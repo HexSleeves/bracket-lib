@@ -1,3 +1,4 @@
+use bevy::ecs::component::Mutable;
 use std::convert::{From, TryInto};
 use std::ops;
 use ultraviolet::Vec3;
@@ -21,6 +22,7 @@ impl specs::prelude::Component for Point3 {
 
 #[cfg(feature = "bevy")]
 impl bevy::ecs::component::Component for Point3 {
+    type Mutability = Mutable;
     const STORAGE_TYPE: bevy::ecs::component::StorageType =
         bevy::ecs::component::StorageType::Table;
 }

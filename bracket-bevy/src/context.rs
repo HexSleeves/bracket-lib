@@ -4,8 +4,8 @@ use crate::{
     FontCharType, TerminalScalingMode,
 };
 use bevy::{
+    platform::collections::HashMap,
     prelude::{Mesh2d, Resource},
-    utils::HashMap,
 };
 use bracket_color::prelude::RGBA;
 use bracket_geometry::prelude::{Point, Rect};

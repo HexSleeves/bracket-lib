@@ -7,8 +7,8 @@ use crate::{
 };
 use bevy::{
     diagnostic::{FrameTimeDiagnosticsPlugin, LogDiagnosticsPlugin},
+    platform::collections::HashMap,
     prelude::{Plugin, PostUpdate, PreUpdate, Resource, Startup},
-    utils::HashMap,
 };
 use bracket_color::prelude::RGBA;
 use std::collections::HashSet;
@@ -177,7 +177,7 @@ impl BTermBuilder {
 impl Plugin for BTermBuilder {
     fn build(&self, app: &mut bevy::prelude::App) {
         if self.with_diagnostics {
-            app.add_plugins(FrameTimeDiagnosticsPlugin);
+            app.add_plugins(FrameTimeDiagnosticsPlugin::default());
         }
         if self.log_diagnostics {
             app.add_plugins(LogDiagnosticsPlugin::default());

@@ -2,8 +2,8 @@ use super::SparseConsoleBackend;
 use crate::consoles::{scaler::FontScaler, BracketMesh, ScreenScaler, SparseConsole};
 use bevy::{
     asset::RenderAssetUsages,
+    mesh::{Indices, PrimitiveTopology},
     prelude::*,
-    render::mesh::{Indices, PrimitiveTopology},
 };
 
 pub(crate) struct SparseBackendWithBackground {

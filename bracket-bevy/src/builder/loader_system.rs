@@ -3,9 +3,11 @@ use crate::{
     TerminalLayer,
 };
 use bevy::{
-    core_pipeline::core_2d::Camera2d,
-    prelude::{AssetServer, Assets, Commands, Component, Mesh, Msaa, Res, ResMut, UntypedHandle},
-    sprite::ColorMaterial,
+    camera::Camera2d,
+    prelude::{
+        AssetServer, Assets, ColorMaterial, Commands, Component, Mesh, Msaa, Res, ResMut,
+        UntypedHandle,
+    },
 };
 
 use super::image_fixer::ImagesToLoad;

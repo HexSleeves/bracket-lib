@@ -1,8 +1,8 @@
 use crate::{BracketCamera, BracketContext, TerminalScalingMode};
 use bevy::{
+    camera::RenderTarget,
     diagnostic::{DiagnosticsStore, FrameTimeDiagnosticsPlugin},
     prelude::*,
-    render::camera::RenderTarget,
     window::{PrimaryWindow, WindowRef, WindowResized},
 };
 
@@ -106,7 +106,7 @@ pub(crate) fn update_mouse_position(
             // the camera is rendering to the primary window
             RenderTarget::Window(WindowRef::Primary) => wnd_primary.single(),
             // the camera is rendering to some other window
-            RenderTarget::Window(WindowRef::Entity(e_window)) => wnd.get(e_window).unwrap(),
+            RenderTarget::Window(WindowRef::Entity(e_window)) => Ok(wnd.get(e_window).unwrap()),
             // the camera is rendering to something else (like a texture), not a window
             _ => {
                 // skip this camera
@@ -117,6 +117,7 @@ pub(crate) fn update_mouse_position(
         // check if the cursor is inside the window and get its position
         // then, ask bevy to convert into world coordinates, and truncate to discard Z
         if let Some(world_position) = window
+            .expect("LOLIDK")
             .cursor_position()
             .and_then(|cursor| camera.viewport_to_world(camera_transform, cursor).ok())
             .map(|ray| ray.origin.truncate())

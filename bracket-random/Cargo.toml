@@ -28,7 +28,7 @@ rand = { version = "0.8", default-features = false }
 getrandom = { version = "0.2.2" }
 
 [target.wasm32-unknown-unknown.dependencies]
-js-sys = "0.3.48"
+js-sys = "0.3.78"
 wasm-bindgen = "0.2"
 
 [dev-dependencies]
